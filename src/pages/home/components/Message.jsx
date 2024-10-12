@@ -4,7 +4,7 @@ import BannerImage from '/src/assets/colors.jpg';
 function Message() {
   return (
     <div
-      className="section h-[24rem] bg-gray-200 sm:h-[32rem] sm:bg-center"
+      className="divider-y h-[24rem] bg-gray-200 sm:h-[32rem] sm:bg-center"
       id="about"
     >
       <div className="!grid grid-rows-2 grid-cols-1 gap-0 h-full sm:grid-cols-2 sm:grid-rows-1">

@@ -3,7 +3,7 @@ import ContactForm from './ContactForm';
 
 function Contact() {
   return (
-    <div className="section bg-cover bg-gray-200 sm:bg-center">
+    <div className="divider-y bg-cover bg-gray-200 sm:bg-center">
       <div className="!grid grid-rows-1 grid-cols-1 gap-0 h-full sm:grid-cols-2 sm:grid-rows-1">
         <div
           style={{ backgroundImage: `url(${BannerImage})` }}

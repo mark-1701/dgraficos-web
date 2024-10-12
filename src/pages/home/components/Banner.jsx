@@ -2,7 +2,7 @@ import BannerImage from '/src/assets/banner.jpg';
 
 function Banner() {
   return (
-    <div className="section h-[24rem] bg-gray-200 sm:h-[32rem]">
+    <div className="divider-y h-[24rem] bg-gray-200 sm:h-[32rem]">
       <div className="!grid grid-rows-2 grid-cols-1 gap-0 h-full sm:grid-cols-2 sm:grid-rows-1">
         <div className="flex justify-center items-center p-8 sm:p-14">
           <h1 className="sm:text-xl">

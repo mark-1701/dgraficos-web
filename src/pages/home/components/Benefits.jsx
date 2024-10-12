@@ -2,7 +2,7 @@ import Benefit from './Benefit';
 
 function Benefits() {
   return (
-    <div className="section px-4 sm:px-8">
+    <div className="divider-x divider-y">
       <h1 className="title">Beneficios</h1>
       <div className="!grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6 md:grid-cols-4">
         <Benefit
