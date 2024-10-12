@@ -1,0 +1,49 @@
+@layer tailwind-base, primereact, tailwind-utilities;
+
+/* IMPORTANT: In "styled" mode you must add the PrimeReact Theme here. Do NOT include in "unstyled" mode */
+@import 'primereact/resources/themes/lara-light-cyan/theme.css';
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+.section {
+  @apply mb-8 sm:mb-24;
+}
+
+.title {
+  @apply mb-8 font-bold text-gray-700 sm:text-xl;
+}
+
+.btn {
+  @apply p-1 px-2 rounded shadow bg-gray-400 text-white hover:bg-gray-400;
+}
+
+.input {
+  @apply w-full h-8 p-2 rounded border-2 border-gray-200 hover:border-blue-500 focus:border-blue-500 !outline-none;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+@media (max-width: 639px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
