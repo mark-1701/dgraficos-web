@@ -1,5 +1,3 @@
-import { useState } from 'react';
-import { Button } from 'primereact/button';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/home/Home';
 

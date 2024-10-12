@@ -5,6 +5,7 @@ import Banner from './components/Banner';
 import Message from './components/Message';
 import Benefits from './components/Benefits';
 import Footer from '../../components/layouts/Footer';
+import Products from './components/Products';
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <Banner />
       </header>
       <main>
+        <Products />
         <Message />
         <Benefits />
         <Contact />

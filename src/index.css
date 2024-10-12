@@ -16,6 +16,10 @@
   @apply mb-8 sm:mb-24;
 }
 
+.link {
+  @apply underline text-blue-600;
+}
+
 .title {
   @apply mb-8 font-bold text-gray-700 sm:text-xl;
 }

@@ -5,7 +5,7 @@ const Navbar = () => {
   return (
     <div className="flex justify-between items-center w-full h-20 px-4 shadow bg-gray-100 sm:px-8">
       <div className="flex items-center gap-4">
-        <img src={logo} alt="Logo" className="w-32 mr-4" />
+        <img src={logo} alt="Logo" className="h-14 w-14 mr-2" />
         <div className="hidden sm:flex gap-4">
           <a href="#" className="text-gray-800 hover:text-gray-600">
             Inicio

@@ -25,26 +25,6 @@ function Benefits() {
           title="Almacen"
           description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, laudantium?"
         />
-        <Benefit
-          iconName="security"
-          title="Seguridad"
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, laudantium?"
-        />
-        <Benefit
-          iconName="schedule"
-          title="A tiempo"
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, laudantium?"
-        />
-        <Benefit
-          iconName="support_agent"
-          title="Asistencia"
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, laudantium?"
-        />
-        <Benefit
-          iconName="inventory_2"
-          title="Almacen"
-          description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illo, laudantium?"
-        />
       </div>
     </div>
   );

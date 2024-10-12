@@ -1,5 +1,5 @@
 import React from 'react';
-import BannerImage from '/src/assets/pilot.jpg';
+import BannerImage from '/src/assets/colors.jpg';
 
 function Message() {
   return (
