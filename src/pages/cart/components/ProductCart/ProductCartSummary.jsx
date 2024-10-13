@@ -1,8 +1,8 @@
-const ProductCartSummary = () => {
+const ProductCartSummary = ({ product }) => {
   return (
     <div>
-      <p>lorem ipsum dolor sit amet</p>
-      <b>$1000.00</b>
+      <p>{product?.description}</p>
+      <b>Q. {product?.inventaries[0]?.price}.00</b>
     </div>
   );
 };

@@ -1,34 +1,63 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Función para cargar los productos desde localStorage
+const loadFromLocalStorage = () => {
+  try {
+    const serializedState = localStorage.getItem('products');
+    return serializedState ? JSON.parse(serializedState) : [];
+  } catch (e) {
+    console.warn('Error loading from localStorage', e);
+    return [];
+  }
+};
+
+// Función para guardar los productos en localStorage
+const saveToLocalStorage = state => {
+  try {
+    const serializedState = JSON.stringify(state);
+    localStorage.setItem('products', serializedState);
+  } catch (e) {
+    console.warn('Error saving to localStorage', e);
+  }
+};
+
 const productSlice = createSlice({
   name: 'products',
   initialState: {
-    data: []
+    // Cargamos los productos desde localStorage
+    data: loadFromLocalStorage()
   },
   reducers: {
     productAdded: (state, action) => {
-      // solo se agrega cuando el id no esta registrado
       const exists = state.data.find(
         product => product.id === action.payload.id
       );
       if (!exists) {
         state.data.push(action.payload);
+        // Guardamos en localStorage
+        saveToLocalStorage(state.data);
       }
     },
     productsLoaded: (state, action) => {
-      // ignora los comentarios
-      // payload es el valor de de api que estamos solicitando
-      // state.data hace referencia a data[]
       state.data = action.payload;
+      // Guardamos en localStorage
+      saveToLocalStorage(state.data);
     },
+    // actualizar cantidad del producto
     productUpdated: (state, action) => {
-      const { id, name } = action.payload;
+      const { id, amount } = action.payload;
       const product = state.data.find(product => product.id === id);
-      if (product) product.name = name;
+      if (product) {
+        product.amount = amount;
+        // Guardamos en localStorage
+        saveToLocalStorage(state.data);
+      }
     },
     productRemoved: (state, action) => {
       const id = action.payload;
-      state.data = state.data.filter(producto => producto.id !== id);
+      state.data = state.data.filter(product => product.id !== id);
+      // Guardamos en localStorage
+      saveToLocalStorage(state.data);
     }
   }
 });

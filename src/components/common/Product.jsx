@@ -1,17 +1,8 @@
+import capitalizeFirstLetter from '../../utilities/capitalizeFirstLetter';
+import formattedImageUri from '../../utilities/formattedImageUri';
 import ImageNotFound from '/src/assets/image_not_found.jpg';
 
 const Product = ({ product, confirm }) => {
-  // darle formato mayusculas en la primera letra
-  const capitalizeFirstLetter = str => {
-    if (str.length === 0) return str;
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  };
-
-  // darle formato a la url de la imagen
-  const formattedImageUri = imageUri => {
-    return `${import.meta.env.VITE_IMAGES_URL}/${imageUri}`;
-  };
-
   const imageUri = product?.image_uri
     ? formattedImageUri(product?.image_uri)
     : ImageNotFound;

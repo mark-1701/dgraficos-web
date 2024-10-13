@@ -1,11 +1,8 @@
+import capitalizeFirstLetter from '../../../../utilities/capitalizeFirstLetter';
+import formattedImageUri from '../../../../utilities/formattedImageUri';
 import ImageNotFound from '/src/assets/image_not_found.jpg';
 
 const ProductCartImages = ({ product }) => {
-  // darle formato a la url de la imagen
-  const formattedImageUri = imageUri => {
-    return `${import.meta.env.VITE_IMAGES_URL}/${imageUri}`;
-  };
-
   const imageUri = product?.image_uri
     ? formattedImageUri(product?.image_uri)
     : ImageNotFound;
@@ -13,7 +10,7 @@ const ProductCartImages = ({ product }) => {
   return (
     <div className="flex gap-4">
       <div>
-        <p className="text-center">Producto</p>
+        <p className="text-center">{capitalizeFirstLetter(product?.name)}</p>
         <img
           src={imageUri}
           alt="not found"
