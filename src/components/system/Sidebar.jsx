@@ -1,4 +1,4 @@
-function SystemSidebar({ menuBtn, sideBarLinks }) {
+function Sidebar({ menuBtn, sideBarLinks }) {
   let responsiveWidthSmall = menuBtn ? 'w-2/3' : 'w-14';
   let responsiveWidthLarge = !menuBtn ? 'sm:w-[300px]' : 'sm:w-14';
   return (
@@ -11,4 +11,4 @@ function SystemSidebar({ menuBtn, sideBarLinks }) {
   );
 }
 
-export default SystemSidebar;
+export default Sidebar;

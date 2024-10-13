@@ -1,40 +1,37 @@
 import LogoutButton from '../../../components/system/LogoutButton';
-import SystemSidebarLink from '../../../components/system/SystemSidebarLink';
+import SidebarLink from '../../../components/system/SidebarLink';
 
-const SidebarLinks = () => {
+const AdministrationSidebarLinks = () => {
   return (
     <>
-      <SystemSidebarLink
+      <SidebarLink
         link={'/administration/dashboard'}
         icon={'dashboard'}
         linkTitle={'Dashboard'}
       />
-      <SystemSidebarLink
+      <SidebarLink
         link={'/administration/my-tickets'}
         icon={'print'}
         linkTitle={'Resolver pedidos'}
       />
-      <SystemSidebarLink
+      <SidebarLink
         link={'/administration/available-tickets'}
         icon={'list_alt'}
         linkTitle={'Todos los pedidos'}
       />
-      <SystemSidebarLink
+      <SidebarLink
         link={'/administration/users'}
         icon={'group'}
         linkTitle={'Usuarios'}
       />
-      <SystemSidebarLink
+      <SidebarLink
         link={'/administration/settings'}
         icon={'settings'}
         linkTitle={'Configuraciones'}
       />
-      <LogoutButton
-        icon={'logout'}
-        linkTitle={'Salir'}
-      />
+      <LogoutButton icon={'logout'} linkTitle={'Salir'} />
     </>
   );
 };
 
-export default SidebarLinks;
+export default AdministrationSidebarLinks;

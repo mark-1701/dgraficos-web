@@ -3,7 +3,8 @@ import Home from './pages/home/Home';
 import Products from './pages/products/Products';
 import Cart from './pages/cart/Cart';
 import Login from './pages/login/Login';
-import Administration from './pages/administration/Administration';
+import AdministrationRoutes from './routes/AdministrationRoutes';
+// import Administration from './pages/administration/Administration';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/administration" element={<Administration />} />
+        <Route path="/administration/*" element={<AdministrationRoutes />} />
       </Routes>
     </Router>
   );
