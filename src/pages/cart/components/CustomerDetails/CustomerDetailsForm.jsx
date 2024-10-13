@@ -1,6 +1,6 @@
 const CustomerDetailsForm = () => {
   return (
-    <form
+    <div
       className="!grid grid-cols-2 gap-14  p-4 rounded-lg bg-gray-50 border"
       onSubmit={e => {
         e.preventDefault();
@@ -11,13 +11,7 @@ const CustomerDetailsForm = () => {
         <label htmlFor="name" className="label">
           Nombre:
         </label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          required
-          className="input"
-        />
+        <input type="text" id="name" name="name" required className="input" />
       </div>
       <div>
         <label htmlFor="email" className="label">
@@ -67,7 +61,7 @@ const CustomerDetailsForm = () => {
           className="input"
         />
       </div>
-    </form>
+    </div>
   );
 };
 

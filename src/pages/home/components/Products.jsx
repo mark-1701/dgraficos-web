@@ -8,8 +8,8 @@ import { Toast } from 'primereact/toast';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 
 const Products = () => {
-  const toast = useRef(null);
   const dispatch = useDispatch();
+  const toast = useRef(null);
   const [productData, setProductData] = useState([]);
 
   useEffect(() => {

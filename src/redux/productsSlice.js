@@ -58,10 +58,15 @@ const productSlice = createSlice({
       state.data = state.data.filter(product => product.id !== id);
       // Guardamos en localStorage
       saveToLocalStorage(state.data);
+    },
+    productsCleared: state => {
+      state.data = [];
+      // Guardamos en localStorage
+      saveToLocalStorage(state.data);
     }
   }
 });
 
-export const { productAdded, productsLoaded, productUpdated, productRemoved } =
+export const { productAdded, productsLoaded, productUpdated, productRemoved, productsCleared } =
   productSlice.actions;
 export default productSlice.reducer;

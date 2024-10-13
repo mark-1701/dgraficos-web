@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-const SummaryCart = ({step, handleBack, handleNext }) => {
+const SummaryCart = ({ step, handleBack, handleNext }) => {
   const [subtotal, setSubtotal] = useState(0);
   const products = useSelector(state => state.products.data);
 
@@ -30,16 +30,18 @@ const SummaryCart = ({step, handleBack, handleNext }) => {
           </tr>
         </tbody>
       </table>
-      <div className='flex gap-2'>
+      <div className="flex gap-2">
         {step > 1 && (
           <button className="btn w-full !bg-gray-400" onClick={handleBack}>
             Retroceder
           </button>
         )}
-        <button className="btn w-full !bg-zinc-900" onClick={handleNext}>
-          {step === 2 ? 'Comprar' : 'Siguiente'}
-        </button>
-        {/* <button className="btn !w-full !bg-zinc-900">Siguiente</button> */}
+        <input
+          type="submit"
+          className="btn w-full !bg-zinc-900 cursor-pointer"
+          value={step === 2 ? 'Comprar' : 'Siguiente'}
+          onClick={handleNext}
+        />
       </div>
     </div>
   );
