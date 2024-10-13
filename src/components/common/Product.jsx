@@ -1,4 +1,4 @@
-import ImageNotFound from '/src/assets/image_not_found.jpg'; // no usar, usar directamente la url estatica
+import ImageNotFound from '/src/assets/image_not_found.jpg';
 
 const Product = ({ product, confirm }) => {
   // darle formato mayusculas en la primera letra
