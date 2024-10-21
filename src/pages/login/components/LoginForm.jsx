@@ -28,6 +28,7 @@ function LoginForm() {
       className="flex flex-col gap-14"
       onSubmit={e => {
         e.preventDefault();
+        navigate('/administration')
         // loginAction(e);
       }}
     >
@@ -57,7 +58,10 @@ function LoginForm() {
         <p className="mt-3 text-sm text-blue-500">¿Olvidaste tu contraseña?</p>
       </div>
       <div>
-        <button type="submit" className="btn w-full !bg-black">
+        <button
+          type="submit"
+          className="btn w-full !bg-black"
+        >
           Enviar
         </button>
         <p className="mt-3 text-sm text-right text-blue-500">

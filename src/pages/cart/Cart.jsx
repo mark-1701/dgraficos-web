@@ -24,6 +24,7 @@ const Cart = () => {
     return `${year}-${month}-${day}`;
   };
 
+  // * mensaje de aceptacion
   const accept = () => {
     const fetchData = async () => {
       try {
@@ -38,6 +39,9 @@ const Cart = () => {
           detail: 'Tu orden a sido enviada',
           life: 3000
         });
+
+
+
         // reinicio
         dispatch(productsCleared());
         setTimeout(() => {
@@ -55,7 +59,7 @@ const Cart = () => {
     fetchData();
   };
 
-  // mensaje de rechazo
+  // * mensaje de rechazo
   const reject = () => {
     toast.current.show({
       severity: 'warn',
@@ -65,7 +69,7 @@ const Cart = () => {
     });
   };
 
-  // acccion para adelante
+  // * acccion para adelante
   const handleNext = () => {
     if (step == 2) {
       confirmDialog({
@@ -82,7 +86,7 @@ const Cart = () => {
     }
   };
 
-  // accion para atras
+  // * accion para atras
   const handleBack = () => {
     if (step > 1) {
       setStep(step - 1);

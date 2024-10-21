@@ -36,12 +36,13 @@ const SummaryCart = ({ step, handleBack, handleNext }) => {
             Retroceder
           </button>
         )}
-        <input
-          type="submit"
+        <button
+          // type="submit"
           className="btn w-full !bg-zinc-900 cursor-pointer"
-          value={step === 2 ? 'Comprar' : 'Siguiente'}
           onClick={handleNext}
-        />
+        >
+          {step === 2 ? 'Comprar' : 'Siguiente'}
+        </button>
       </div>
     </div>
   );

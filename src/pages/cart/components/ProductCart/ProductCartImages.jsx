@@ -1,5 +1,6 @@
 import capitalizeFirstLetter from '../../../../utilities/capitalizeFirstLetter';
 import formattedImageUri from '../../../../utilities/formattedImageUri';
+import ImageWithContextMenu from './ImageWithContextMenu';
 import ImageNotFound from '/src/assets/image_not_found.jpg';
 
 const ProductCartImages = ({ product }) => {
@@ -18,12 +19,7 @@ const ProductCartImages = ({ product }) => {
         />
       </div>
       <div>
-        <p className="text-center">Diseño</p>
-        <img
-          src={ImageNotFound}
-          alt="not found"
-          className="w-20 h-20 object-cover"
-        />
+        <ImageWithContextMenu productId={product.id} />
       </div>
     </div>
   );

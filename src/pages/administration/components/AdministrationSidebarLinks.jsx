@@ -10,12 +10,12 @@ const AdministrationSidebarLinks = () => {
         linkTitle={'Dashboard'}
       />
       <SidebarLink
-        link={'/administration/my-tickets'}
+        link={'/administration/resolve-orders'}
         icon={'print'}
         linkTitle={'Resolver pedidos'}
       />
       <SidebarLink
-        link={'/administration/available-tickets'}
+        link={'/administration/all-orders'}
         icon={'list_alt'}
         linkTitle={'Todos los pedidos'}
       />

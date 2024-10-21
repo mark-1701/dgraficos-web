@@ -1,8 +1,13 @@
+import useMedia from 'use-media';
 import capitalizeFirstLetter from '../../utilities/capitalizeFirstLetter';
 import formattedImageUri from '../../utilities/formattedImageUri';
 import ImageNotFound from '/src/assets/image_not_found.jpg';
 
 const Product = ({ product, confirm }) => {
+  // detectar si la pantalla tiene al menos 640px
+  const isMediumScreen = useMedia({minWidth: '640px'});
+  
+
   const imageUri = product?.image_uri
     ? formattedImageUri(product?.image_uri)
     : ImageNotFound;
@@ -13,7 +18,7 @@ const Product = ({ product, confirm }) => {
         style={{
           backgroundImage: `url(${imageUri})`
         }}
-        className="w-60 h-60 bg-cover"
+        className="w-40 h-40 bg-cover sm:w-60 sm:h-60"
       >
         <div className="hover:!opacity-100 opacity-0 flex justify-center items-center w-full h-full bg-zinc-700/[.3]">
           <button
@@ -22,7 +27,8 @@ const Product = ({ product, confirm }) => {
               confirm(product);
             }}
           >
-            Agregar al carrito
+            {/* agregar al carrito si es una pantalla mayor de 640px */}
+            {isMediumScreen ? 'Agregar al carrito' : 'Agregar'}
           </button>
         </div>
       </div>

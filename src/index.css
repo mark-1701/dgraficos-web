@@ -32,12 +32,46 @@
   @apply p-3 px-2 rounded shadow bg-gray-400 text-white hover:bg-gray-400;
 }
 
+/* ! form */
+
 .label {
   @apply mb-4 block;
 }
 
 .input {
   @apply w-full h-12 p-1 rounded border border-gray-600 hover:border-blue-500 focus:border-blue-500 !outline-none;
+}
+
+/* ! table */
+.table {
+  @apply w-full border-collapse;
+}
+
+.table thead {
+  @apply bg-slate-100;
+}
+
+.table tr {
+  @apply hover:bg-gray-50;
+}
+
+.table th,
+td {
+  @apply border p-2 overflow-hidden text-center cursor-pointer;
+}
+
+.columns-4 tr {
+  @apply grid grid-cols-5;
+}
+
+.columns-5 tr {
+  @apply grid grid-cols-6;
+}
+
+/* ! modal */
+
+.modal {
+  @apply flex justify-center items-center fixed top-0 left-0 w-full h-full p-8 transition-all opacity-100 bg-neutral-800 bg-opacity-50;
 }
 
 .material-symbols-outlined {
