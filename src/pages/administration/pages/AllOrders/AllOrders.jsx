@@ -10,6 +10,7 @@ const AllOrders = () => {
     const fetchData = async () => {
       const data = await getData('order');
       setOrderData(data);
+      console.log(data);
     };
     fetchData();
   }, []);

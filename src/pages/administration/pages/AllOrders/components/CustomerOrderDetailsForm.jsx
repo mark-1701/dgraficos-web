@@ -1,6 +1,19 @@
-const CustomerDetailsForm = () => {
+const CustomerOrderDetailsForm = ({ order }) => {
   return (
-    <div className="!grid grid-cols-2 gap-14  grid-flow-row  p-4 rounded-lg bg-gray-50 border">
+    <div className="!grid grid-cols-2 gap-14 grid-flow-row">
+      <div>
+        <label htmlFor="id" className="label">
+          Id:
+        </label>
+        <input
+          type="text"
+          id="id"
+          name="id"
+          disabled
+          className="input"
+          value={order?.guest_user?.id}
+        />
+      </div>
       <div>
         <label htmlFor="first_name" className="label">
           Nombres:
@@ -9,8 +22,9 @@ const CustomerDetailsForm = () => {
           type="text"
           id="first_name"
           name="first_name"
-          required
+          disabled
           className="input"
+          value={order?.guest_user?.first_name}
         />
       </div>
       <div>
@@ -21,8 +35,9 @@ const CustomerDetailsForm = () => {
           type="text"
           id="last_name"
           name="last_name"
-          required
+          disabled
           className="input"
+          value={order?.guest_user?.last_name}
         />
       </div>
       <div>
@@ -33,8 +48,9 @@ const CustomerDetailsForm = () => {
           type="email"
           id="email"
           name="email"
-          required
+          disabled
           className="input"
+          value={order?.guest_user?.email}
         />
       </div>
       <div>
@@ -45,8 +61,9 @@ const CustomerDetailsForm = () => {
           type="number"
           id="phone_number"
           name="phone_number"
-          required
+          disabled
           className="input"
+          value={order?.guest_user?.phone_number}
         />
       </div>
       <div>
@@ -57,8 +74,9 @@ const CustomerDetailsForm = () => {
           type="number"
           id="secondary_phone_number"
           name="secondary_phone_number"
-          required
+          disabled
           className="input"
+          value={order?.guest_user?.secondary_phone_number}
         />
       </div>
       <div>
@@ -69,12 +87,13 @@ const CustomerDetailsForm = () => {
           type="date"
           id="date_of_birth"
           name="date_of_birth"
-          required
+          disabled
           className="input"
+          value={order?.guest_user?.date_of_birth}
         />
       </div>
     </div>
   );
 };
 
-export default CustomerDetailsForm;
+export default CustomerOrderDetailsForm;
