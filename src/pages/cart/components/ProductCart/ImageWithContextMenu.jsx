@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import ImageNotFound from '/src/assets/image_not_found.jpg';
+import { productUpdated } from '../../../../redux/productsSlice';
 
 function ImageWithContextMenu({ productId }) {
+  const dispatch = useDispatch();
   const [contextMenu, setContextMenu] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
   const [selectdImage, setSelectedImage] = useState(null);
@@ -27,7 +30,7 @@ function ImageWithContextMenu({ productId }) {
     document.getElementById(productId).click();
   };
 
-  // manejador para captar cambios en el input al subir imagen
+  // * manejador para captar cambios en el input al subir imagen
   const handleFileChange = event => {
     const file = event.target.files[0];
     if (file) {
@@ -100,6 +103,7 @@ function ImageWithContextMenu({ productId }) {
       <input
         type="file"
         id={productId}
+        name={productId}
         // solo permitir imagenes
         accept="image/*"
         className="hidden"

@@ -45,10 +45,11 @@ const productSlice = createSlice({
     },
     // actualizar cantidad del producto
     productUpdated: (state, action) => {
-      const { id, amount } = action.payload;
+      const { id, amount, file } = action.payload;
       const product = state.data.find(product => product.id === id);
       if (product) {
-        product.amount = amount;
+        if (amount) product.amount = amount;
+        if (file) product.file = file;
         // Guardamos en localStorage
         saveToLocalStorage(state.data);
       }
@@ -67,6 +68,11 @@ const productSlice = createSlice({
   }
 });
 
-export const { productAdded, productsLoaded, productUpdated, productRemoved, productsCleared } =
-  productSlice.actions;
+export const {
+  productAdded,
+  productsLoaded,
+  productUpdated,
+  productRemoved,
+  productsCleared
+} = productSlice.actions;
 export default productSlice.reducer;

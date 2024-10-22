@@ -32,14 +32,16 @@ const SummaryCart = ({ step, handleBack, handleNext }) => {
       </table>
       <div className="flex gap-2">
         {step > 1 && (
+          // ? aqui el boton si tiene la capacidad de retroceder
           <button className="btn w-full !bg-gray-400" onClick={handleBack}>
             Retroceder
           </button>
         )}
         <button
-          // type="submit"
+          type="submit"
           className="btn w-full !bg-zinc-900 cursor-pointer"
-          onClick={handleNext}
+          // ? el boton ya no gestiona el siguiente paso, ahora es el formulario
+          // onClick={handleNext}
         >
           {step === 2 ? 'Comprar' : 'Siguiente'}
         </button>

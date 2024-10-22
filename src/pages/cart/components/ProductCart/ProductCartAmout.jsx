@@ -1,13 +1,14 @@
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {
   productUpdated,
   productRemoved
 } from '../../../../redux/productsSlice';
-import { useEffect, useState } from 'react';
 
 const ProductCartAmout = ({ product }) => {
   const dispatch = useDispatch();
-  const [amount, setAmount] = useState(1);
+  // si no cuenta con una cantidad, arranca con 0
+  const [amount, setAmount] = useState(product.amount || 1);
 
   const onUpdateUser = () => {
     dispatch(productUpdated({ id: product.id, amount }));

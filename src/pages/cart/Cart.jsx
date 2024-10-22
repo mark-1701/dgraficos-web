@@ -25,28 +25,30 @@ const Cart = () => {
   };
 
   // * mensaje de aceptacion
-  const accept = () => {
+  const accept = e => {
     const fetchData = async () => {
       try {
         const formData = new FormData();
         formData.append('order_status_id', 1);
-        await postData('order', formData);
+        // await postData('order', formData);
+
+        // ! pruebas
+        const formData2 = new FormData(e.target);
+        console.log(formData2.get('4'));
 
         // mensaje de confirmacion
-        toast.current.show({
-          severity: 'success',
-          summary: 'Confirmación',
-          detail: 'Tu orden a sido enviada',
-          life: 3000
-        });
-
-
+        // toast.current.show({
+        //   severity: 'success',
+        //   summary: 'Confirmación',
+        //   detail: 'Tu orden a sido enviada',
+        //   life: 3000
+        // });
 
         // reinicio
-        dispatch(productsCleared());
-        setTimeout(() => {
-          navigate('/');
-        }, 1000);
+        // dispatch(productsCleared());
+        // setTimeout(() => {
+        //   navigate('/');
+        // }, 1000);
       } catch (err) {
         toast.current.show({
           severity: 'error',
@@ -70,14 +72,17 @@ const Cart = () => {
   };
 
   // * acccion para adelante
-  const handleNext = () => {
+  const handleNext = e => {
+    // ? prevenir el envio del formulario
+    e.preventDefault();
+
     if (step == 2) {
       confirmDialog({
         message: '¿Listo para comprar?',
         header: 'Confirmación',
         icon: 'pi pi-exclamation-triangle',
         defaultFocus: 'accept',
-        accept,
+        accept: () => accept(e),
         reject
       });
     }
@@ -100,8 +105,20 @@ const Cart = () => {
       <div className="divider-y">
         <Navbar />
       </div>
-      <form className="divider-x divider-y !grid sm:grid-cols-[1fr_350px] gap-8">
-        {step === 1 ? <ProductList /> : <CustomerDetails />}
+      <form
+        className="divider-x divider-y !grid sm:grid-cols-[1fr_350px] gap-8"
+        onSubmit={e => {
+          handleNext(e);
+        }}
+      >
+        {/* ProductList siempre está en el DOM, pero solo se muestra en step 1 */}
+        <div className={step === 1 ? '' : 'hidden'}>
+          <ProductList />
+        </div>
+
+        {/* CustomerDetails solo se renderiza en step 2 */}
+        {step === 2 && <CustomerDetails />}
+
         <SummaryCart
           step={step}
           handleBack={handleBack}
