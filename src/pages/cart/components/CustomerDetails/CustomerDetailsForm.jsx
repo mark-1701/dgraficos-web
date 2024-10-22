@@ -1,17 +1,29 @@
 const CustomerDetailsForm = () => {
   return (
-    <div
-      className="!grid grid-cols-2 gap-14  p-4 rounded-lg bg-gray-50 border"
-      onSubmit={e => {
-        e.preventDefault();
-        // loginAction(e);
-      }}
-    >
+    <div className="!grid grid-cols-2 gap-14  grid-flow-row  p-4 rounded-lg bg-gray-50 border">
       <div>
-        <label htmlFor="name" className="label">
-          Nombre:
+        <label htmlFor="first_name" className="label">
+          Nombres:
         </label>
-        <input type="text" id="name" name="name" required className="input" />
+        <input
+          type="text"
+          id="first_name"
+          name="first_name"
+          required
+          className="input"
+        />
+      </div>
+      <div>
+        <label htmlFor="last_name" className="label">
+          Apellidos:
+        </label>
+        <input
+          type="text"
+          id="last_name"
+          name="last_name"
+          required
+          className="input"
+        />
       </div>
       <div>
         <label htmlFor="email" className="label">
@@ -33,6 +45,18 @@ const CustomerDetailsForm = () => {
           type="number"
           id="phone_number"
           name="phone_number"
+          required
+          className="input"
+        />
+      </div>
+      <div>
+        <label htmlFor="secondary_phone_number" className="label">
+          Número de télefono secundario:
+        </label>
+        <input
+          type="number"
+          id="secondary_phone_number"
+          name="secondary_phone_number"
           required
           className="input"
         />

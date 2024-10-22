@@ -1,4 +1,4 @@
-import ProductCartAmout from './ProductCartAmout';
+import ProductCartQuantity from './ProductCartQuantity';
 import ProductCartImages from './ProductCartImages';
 import ProductCartSummary from './ProductCartSummary';
 
@@ -9,7 +9,7 @@ const ProductCart = ({ product }) => {
         <ProductCartImages product={product} />
         <ProductCartSummary product={product} />
       </div>
-      <ProductCartAmout product={product} />
+      <ProductCartQuantity product={product} />
     </div>
   );
 };

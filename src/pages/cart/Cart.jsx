@@ -31,26 +31,24 @@ const Cart = () => {
     const fetchData = async () => {
       try {
         const formData = new FormData(e.target);
-        formData.append('order_status_id', 1);
         formData.append('products', JSON.stringify(products));
-
-        // await postData('order', formData);
+        await postData('order/orderall', formData);
 
         // mensaje de confirmacion
-        // toast.current.show({
-        //   severity: 'success',
-        //   summary: 'Confirmación',
-        //   detail: 'Tu orden a sido enviada',
-        //   life: 3000
-        // });
+        toast.current.show({
+          severity: 'success',
+          summary: 'Confirmación',
+          detail: 'Tu orden a sido enviada',
+          life: 3000
+        });
 
         // reinicio
-        // dispatch(productsCleared());
-        // setTimeout(() => {
-        //   navigate('/');
-        // }, 1000);
+        dispatch(productsCleared());
+        setTimeout(() => {
+          navigate('/');
+        }, 1000);
       } catch (err) {
-        console.err(err);
+        console.error(err);
         toast.current.show({
           severity: 'error',
           summary: 'Error Message',

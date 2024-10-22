@@ -7,9 +7,9 @@ const SummaryCart = ({ step, handleBack, handleNext }) => {
 
   useEffect(() => {
     const subtotal = products.reduce((total, product) => {
-      const productAmount = product?.amount || 0;
+      const productQuantity = product?.quantity || 0;
       const productPrice = product?.inventaries[0]?.price || 0;
-      return total + productAmount * productPrice;
+      return total + productQuantity * productPrice;
     }, 0); // El 0 es el valor inicial del acumulador
 
     setSubtotal(subtotal);
