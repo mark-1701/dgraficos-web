@@ -6,7 +6,7 @@ import CustomerDetails from './components/CustomerDetails/CustomerDetails';
 import { Toast } from 'primereact/toast';
 import { ConfirmDialog, confirmDialog } from 'primereact/confirmdialog';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { productsCleared } from '../../redux/productsSlice';
 import { postData } from '../../services/api';
 
@@ -15,6 +15,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const toast = useRef(null);
   const [step, setStep] = useState(1); // Estado para controlar el paso
+  const products = useSelector(state => state.products.data);
 
   const getCurrentDate = () => {
     const now = new Date();
@@ -26,15 +27,14 @@ const Cart = () => {
 
   // * mensaje de aceptacion
   const accept = e => {
+    // * enviar pedidos a la api
     const fetchData = async () => {
       try {
-        const formData = new FormData();
+        const formData = new FormData(e.target);
         formData.append('order_status_id', 1);
-        // await postData('order', formData);
+        formData.append('products', JSON.stringify(products));
 
-        // ! pruebas
-        const formData2 = new FormData(e.target);
-        console.log(formData2.get('4'));
+        // await postData('order', formData);
 
         // mensaje de confirmacion
         // toast.current.show({
@@ -50,6 +50,7 @@ const Cart = () => {
         //   navigate('/');
         // }, 1000);
       } catch (err) {
+        console.err(err);
         toast.current.show({
           severity: 'error',
           summary: 'Error Message',
@@ -73,9 +74,6 @@ const Cart = () => {
 
   // * acccion para adelante
   const handleNext = e => {
-    // ? prevenir el envio del formulario
-    e.preventDefault();
-
     if (step == 2) {
       confirmDialog({
         message: '¿Listo para comprar?',
@@ -108,6 +106,8 @@ const Cart = () => {
       <form
         className="divider-x divider-y !grid sm:grid-cols-[1fr_350px] gap-8"
         onSubmit={e => {
+          // ? prevenir el envio del formulario
+          e.preventDefault();
           handleNext(e);
         }}
       >

@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import ImageNotFound from '/src/assets/image_not_found.jpg';
-import { productUpdated } from '../../../../redux/productsSlice';
 
 function ImageWithContextMenu({ productId }) {
   const dispatch = useDispatch();
   const [contextMenu, setContextMenu] = useState(null);
   const [showMenu, setShowMenu] = useState(false);
   const [selectdImage, setSelectedImage] = useState(null);
+  const formattedInputFileId = `product-file-${productId}`;
 
   // * Función para manejar el clic derecho y mostrar el menú
   const handleContextMenu = event => {
@@ -27,7 +27,7 @@ function ImageWithContextMenu({ productId }) {
   // manejador de clic para subir imagen
   const handleUploadImageClick = () => {
     // acciona el clic de input file
-    document.getElementById(productId).click();
+    document.getElementById(formattedInputFileId).click();
   };
 
   // * manejador para captar cambios en el input al subir imagen
@@ -56,12 +56,6 @@ function ImageWithContextMenu({ productId }) {
       document.removeEventListener('click', handleClickOutside);
     };
   }, [showMenu]);
-
-  // Función para manejar las opciones del menú
-  const handleMenuOptionClick = option => {
-    console.log(`Opción seleccionada: ${option}`);
-    setShowMenu(false);
-  };
 
   return (
     <div>
@@ -92,7 +86,10 @@ function ImageWithContextMenu({ productId }) {
             Cargar imágen
           </li>
           <li
-            onClick={() => handleMenuOptionClick('Ver detalles')}
+            onClick={() => {
+              // redirección a página para el editor de archivos
+              window.open(import.meta.env.VITE_IMAGE_EDITOR_URL, "_blank");
+            }}
             className="px-3 py-2.5 cursor-pointer hover:bg-blue-600 hover:text-white"
           >
             Diseñar imágen
@@ -102,8 +99,8 @@ function ImageWithContextMenu({ productId }) {
       {/* Input file oculto */}
       <input
         type="file"
-        id={productId}
-        name={productId}
+        id={formattedInputFileId}
+        name={formattedInputFileId}
         // solo permitir imagenes
         accept="image/*"
         className="hidden"
