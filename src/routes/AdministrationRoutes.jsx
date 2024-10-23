@@ -7,7 +7,7 @@ import AllOrders from '../pages/administration/pages/AllOrders/AllOrders';
 const AdministrationRoutes = () => {
   return (
     <Routes>
-      <Route path="" element={<Navigate to="resolve-orders" />} />
+      <Route path="" element={<Navigate to="all-orders" />} />
       <Route
         path="dashboard"
         element={

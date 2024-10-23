@@ -7,6 +7,7 @@ import { useState } from 'react';
 import CustomerOrderDetailsForm from './CustomerOrderDetailsForm';
 import PanelButtons from './PanelButtons';
 import TagOrderState from './TagOrderState';
+import OrderDetailsTable from './OrderDetailsTable';
 
 const AllOrdersTable = ({
   data,
@@ -51,21 +52,6 @@ const AllOrdersTable = ({
               >
                 <ViewIcon />
               </button>
-
-              {/* boton para eliminar */}
-              {/* <form
-                action="post"
-                onSubmit={e => {
-                  e.preventDefault();
-                  if (confirm('Aún no es posible elimianr escalaciones')) {
-                    // deleteTicket(order.id);
-                  }
-                }}
-              >
-                <button type="submit" className="">
-                  <DeleteIcon />
-                </button>
-              </form> */}
             </td>
           </tr>
         ))}
@@ -81,6 +67,8 @@ const AllOrdersTable = ({
         }}
       >
         <CustomerOrderDetailsForm order={order} />
+        <hr className="mt-14 mb-14" />
+        <OrderDetailsTable order={order} />
         <hr className="mt-14 mb-14" />
         <PanelButtons order={order} />
       </Dialog>
